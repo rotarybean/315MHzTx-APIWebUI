@@ -17,7 +17,7 @@ RF_PIN = 17
 gpio_initialized = False
 
 def initialize_gpio():
-    #Initialize GPIO with proper error handling
+    #Initialize GPIO
     global gpio_initialized
     try:
         # Cleanup any existing GPIO state
@@ -62,7 +62,7 @@ initialize_gpio()
 # State file to persist device state
 STATE_FILE = "device_state.json"
 
-# Command mappings (keep your existing mappings)
+# Command mappings
 COMMAND_SIGNALS = {
     "power_toggle": [1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,0,1,1,1,0,1],
     "faster": [1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
@@ -420,3 +420,4 @@ if __name__ == '__main__':
     finally:
 
         cleanup_gpio()
+
