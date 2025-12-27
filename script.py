@@ -3,7 +3,7 @@ import re
 
 class fmachRadioController:
     def __init__(self):
-        self.pi_endpoint = "http://192.168.254.154:5000"  # ← TODO: CHANGE THIS
+        self.pi_endpoint = "http://[ENDPOINT_IP]:5000"  #Change this to your Pi's IP
         self.available_commands = {
             "power_toggle": "Toggle power on/off",
             "faster": "Increase speed", 
@@ -72,4 +72,5 @@ def output_modifier(string):
 
 def ui():
     # Optional: Add web UI elements
+
     pass
