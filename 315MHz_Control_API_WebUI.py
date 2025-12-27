@@ -17,7 +17,7 @@ RF_PIN = 17
 gpio_initialized = False
 
 def initialize_gpio():
-    """Initialize GPIO with proper error handling"""
+    #Initialize GPIO with proper error handling
     global gpio_initialized
     try:
         # Cleanup any existing GPIO state
@@ -34,7 +34,7 @@ def initialize_gpio():
         gpio_initialized = False
 
 def cleanup_gpio():
-    """Cleanup GPIO on exit"""
+    #Cleanup GPIO on exit
     global gpio_initialized
     if gpio_initialized:
         try:
@@ -46,7 +46,7 @@ def cleanup_gpio():
             print(f"⚠️ Warning during GPIO cleanup: {e}")
 
 def handle_exit(signum, frame):
-    """Handle shutdown signals"""
+    #Handle shutdown signals
     print(f"🛑 Received signal {signum}, shutting down...")
     cleanup_gpio()
     sys.exit(0)
@@ -298,7 +298,7 @@ HTML_TEMPLATE = '''
 '''
 
 def load_device_state():
-    """Load current device state from file"""
+    #Load current device state from file
     default_state = {"power": False, "speed": 0, "mode": 0}
     try:
         with open(STATE_FILE, 'r') as f:
@@ -307,12 +307,12 @@ def load_device_state():
         return default_state
 
 def save_device_state(state):
-    """Save current device state to file"""
+    #Save current device state to file
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f)
 
 def send_radio_signal(signal_pattern):
-    """Convert command pattern to radio signals"""
+    #Convert command pattern to radio signals
     global gpio_initialized
     
     # Reinitialize GPIO if needed
@@ -337,7 +337,7 @@ def send_radio_signal(signal_pattern):
 
 @app.route('/')
 def index():
-    """Serve the web interface"""
+    #Serve the web interface
     return render_template_string(HTML_TEMPLATE)
 
 @app.route('/execute', methods=['POST'])
@@ -387,18 +387,17 @@ def execute_command():
 
 @app.route('/status', methods=['GET'])
 def get_status():
-    """Get current device status"""
     status = load_device_state()
     return jsonify(status)
 
 @app.route('/api/state', methods=['GET'])
 def api_get_state():
-    """API endpoint for getting state (for external applications)"""
+    #API endpoint for getting state (for external applications)
     return jsonify(load_device_state())
 
 @app.route('/api/command', methods=['POST'])
 def api_send_command():
-    """API endpoint for sending commands (for external applications)"""
+    #API endpoint for sending commands (for external applications)
     return execute_command()
 
 if __name__ == '__main__':
@@ -419,4 +418,5 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"❌ Error: {e}")
     finally:
+
         cleanup_gpio()
