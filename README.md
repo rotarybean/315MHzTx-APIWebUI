@@ -1,5 +1,5 @@
 # 315MHzTx-APIWebUI
-A simple API WebUI package for sending 315MHz commands via a Tx-enabled RaspberryPi
+An API WebUI package for sending 315MHz commands via a Tx-enabled RaspberryPi
 
 Using an RTL-SDR dongle and Universal Radio Hacker software from @jopohl/urh, I captured and recorded 315MHz radio signals from a transmitter.  I needed these signals to be transmittable via WebUI commands or via commands with my locally-hosted Oobabooga LLM server. 
 
