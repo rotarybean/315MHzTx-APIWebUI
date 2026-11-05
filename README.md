@@ -142,8 +142,3 @@ Command signals live in the `COMMAND_SIGNALS` dictionary in `315MHz_Control_API_
 - [Universal Radio Hacker](https://github.com/jopohl/urh) by @jopohl for signal capture and analysis
 - [oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui)
 - Written by Spenser Fenton ([@rotarybean](https://github.com/rotarybean))
-
-## License
-
-<!-- TODO: choose a license (MIT is a common choice for scripts like these) -->
-Not yet specified.
